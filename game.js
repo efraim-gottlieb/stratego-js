@@ -1,6 +1,6 @@
-const createBoard = (boardSize = 10, fill = null) => {
+const createBoard = (boardSize = 10, fill = 0) => {
   const board = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < boardSize; i++) {
     board.push(Array(10).fill(fill));
   }
   return board;
@@ -38,20 +38,20 @@ const generateAllGameSoldiers = () => {
   return soldiers;
 };
 
-const getFreeFields = (board) => {
+const getFreeFields = (board, range) => {
   const freePlacess = [];
-  for (let x = 0; x < board.length; x++) {
+  for (let x = range[0]; x < range[1]; x++) {
     for (let y = 0; y < board[x].length; y++) {
-      if (board[x][y] == null) {
-        freePlacess.push({x, y});
+      if (board[x][y] == 0) {
+        freePlacess.push({ x, y });
       }
     }
   }
   return freePlacess;
 };
 
-const getRandomFreePlace = (board) => {
-  const freePlacess = getFreeFields(board);
+const getRandomFreePlace = (board, range) => {
+  const freePlacess = getFreeFields(board, range);
   const randomIndex = Math.floor(Math.random() * freePlacess.length);
   const randomChoice = freePlacess[randomIndex];
   return randomChoice;
@@ -59,23 +59,10 @@ const getRandomFreePlace = (board) => {
 
 const PlacingSoldiersOnBoard = (board, soldiers, range) => {
   soldiers.forEach((soldier) => {
-    const place = getRandomFreePlace(board.slice(range[0], range[1]))
-    board[place.x][place.y] = 'X'
-    soldier.x = place.x
-    soldier.y = place.y
+    const place = getRandomFreePlace(board, range);
+    board[place.x][place.y] = "X";
+    soldier.loc = { x: place.x, y: place.y };
   });
 };
 
-const board = createBoard(10);
-
-const playerSoldiers = generateAllGameSoldiers();
-const pcSoldiers = generateAllGameSoldiers();
-
-PlacingSoldiersOnBoard(board, playerSoldiers, [6, 9])
-// PlacingSoldiersOnBoard(board, pcSoldiers, [6, 9])
-
-
-
-console.table(board)
-
-
+export default { createBoard, generateAllGameSoldiers, PlacingSoldiersOnBoard };
