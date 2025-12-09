@@ -2,19 +2,19 @@ const getMovementOptions = (board, soldier) => {
   const movementOptions = [];
   // right
   if (soldier.loc.y < board.length - 1) {
-    movementOptions.push("right");
+    movementOptions.push({ right: { x: soldier.loc.x, y: soldier.loc.y + 1 } });
   }
   // left
   if (soldier.loc.y !== 0) {
-    movementOptions.push("left");
+    movementOptions.push({ left: { x: soldier.loc.x, y: soldier.loc.y - 1 } });
   }
   // front
   if (soldier.loc.x < board.length - 1) {
-    movementOptions.push("front");
+    movementOptions.push({ front: { x: soldier.loc.x + 1, y: soldier.loc.y } });
   }
   // back
   if (soldier.loc.x !== 0) {
-    movementOptions.push("back");
+    movementOptions.push({ back: { x: soldier.loc.x - 1, y: soldier.loc.y } });
   }
   return movementOptions;
 };

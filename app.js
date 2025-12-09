@@ -1,5 +1,6 @@
 import game from "./game.js";
 import gameLogic from "./gameLogic.js";
+import input from "analiza-sync";
 
 const board = game.createBoard(10);
 
@@ -9,7 +10,10 @@ const pcSoldiers = game.generateAllGameSoldiers();
 game.PlacingSoldiersOnBoard(board, playerSoldiers, [0, 4]);
 game.PlacingSoldiersOnBoard(board, pcSoldiers, [6, 10]);
 
-console.log(pcSoldiers[5])
-console.log(gameLogic.getMovementOptions(board, pcSoldiers[5]));
+let choice;
 
-
+// while (choice != 'exit') {
+//   choice = input();
+// }
+console.log(playerSoldiers[1])
+console.log(gameLogic.getMovementOptions(board, playerSoldiers[1]))
