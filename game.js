@@ -1,4 +1,4 @@
-const createBoard = (boardSize = 10, fill = 0) => {
+export const createBoard = (boardSize = 10, fill = 0) => {
   const board = [];
   for (let i = 0; i < boardSize; i++) {
     board.push(Array(10).fill(fill));

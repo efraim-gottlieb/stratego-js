@@ -16,4 +16,7 @@ let choice;
 //   choice = input();
 // }
 console.log(playerSoldiers[1])
-console.log(gameLogic.getMovementOptions(board, playerSoldiers[1]))
+choice = gameLogic.getMovementOptions(board, playerSoldiers[1])[0].right
+gameLogic.moove(board, playerSoldiers[1], choice)
+
+console.log(playerSoldiers[1])

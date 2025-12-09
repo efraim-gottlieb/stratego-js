@@ -19,4 +19,11 @@ const getMovementOptions = (board, soldier) => {
   return movementOptions;
 };
 
-export default { getMovementOptions };
+const moove = (board, soldier, newPlace) => {
+  board[soldier.loc.x][soldier.loc.y] = 0
+  board[soldier.loc.x][soldier.loc.y] = 'X'
+  soldier.loc.x = newPlace.x
+  soldier.loc.y = newPlace.y
+}
+
+export default { getMovementOptions , moove};

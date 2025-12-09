@@ -1,23 +1,23 @@
 {
-  "name": "astratego",
+  "name": "stratego",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/efraim-gottlieb/stratego-js#readme",
-  "bugs": {
-    "url": "https://github.com/efraim-gottlieb/stratego-js/issues"
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/efraim-gottlieb/stratego-js.git"
   },
-  "license": "ISC",
   "author": "",
-  "type": "module",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efraim-gottlieb/stratego-js/issues"
   },
+  "homepage": "https://github.com/efraim-gottlieb/stratego-js#readme",
   "dependencies": {
     "analiza-sync": "^1.0.1"
-  }
+  },
+  "type": "module"
 }
